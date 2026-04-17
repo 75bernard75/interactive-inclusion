@@ -319,6 +319,132 @@ const DATA = {
       parisAlert: `12ᵉ arrondissement : identifier l'établissement pivot et le coordinateur PAS dès la rentrée 2026.`,
       degree: ["maternelle","elementaire","college","lycee"],
       links: ["PAS","DASEN","EMAS","AESH","MaitreE","MaitreG","PsyEN","CAPPEI"]
+    },
+
+    /* ===== 5. ACCOMPAGNEMENT ===== */
+    {
+      id: "AESH", category: "accompagnement", label: "AESH",
+      fullName: "Accompagnant des Élèves en Situation de Handicap",
+      tagline: "ACCOMPAGNANT — DÉCLENCHÉ PAR PPS / CDAPH",
+      profile: `Tout élève avec notification CDAPH — TSA, DI, paralysie cérébrale, troubles sensoriels, TDAH sévère.`,
+      examples: [
+        { name: "Sofiane", detail: "6ᵉ, TSA modéré, AESH mutualisé 12h/semaine, aide à la prise de notes et gestion des transitions" }
+      ],
+      types: [
+        "AESH-i — individuel (1 seul élève)",
+        "AESH-m — mutualisé entre plusieurs élèves"
+      ],
+      managedBy: `PIAL — Pôle Inclusif d'Accompagnement Localisé (actuellement) → remplacé par PAS rentrée 2026.`,
+      parisAlert: `84 % des élèves notifiés sont accompagnés — 16 % sans AESH malgré la notification CDAPH.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PPS","CDAPH","MDPH","PIAL","PAS","ULIS","ERSEH","ESS"]
+    },
+    {
+      id: "PIAL", category: "accompagnement", label: "PIAL",
+      fullName: "Pôle Inclusif d'Accompagnement Localisé",
+      tagline: "COORDINATION AESH — EN COURS DE REMPLACEMENT PAR PAS",
+      role: `Répartit les heures AESH entre les élèves d'un même bassin d'établissements.`,
+      critique: `Mutualisait excessivement, réduisant de facto les accompagnements individuels notifiés par la CDAPH.`,
+      future: `Remplacé par le PAS rentrée 2026 · Pilotes parisiens 13ᵉ et 18ᵉ depuis septembre 2025.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["AESH","PAS","CDAPH"]
+    },
+
+    /* ===== 6. STRUCTURES SPÉCIALISÉES ===== */
+    {
+      id: "ULIS", category: "structure", label: "ULIS",
+      fullName: "Unité Localisée pour l'Inclusion Scolaire",
+      tagline: "CLASSE SPÉCIALISÉE INCLUSE DANS L'ÉTABLISSEMENT",
+      profile: `DI légère à modérée, TSA, TND, troubles sensoriels, troubles moteurs — avec PPS.`,
+      examples: [
+        { name: "Karim", detail: "6ᵉ, TSA avec DI légère, inclus en EPS et arts plastiques, cours spécialisés le reste du temps" }
+      ],
+      format: `Groupe de 10 à 12 élèves · Inclus partiellement en classe ordinaire · Enseignant spécialisé ULIS.`,
+      parisData: `Paris 2025 : 775 en école · 960 en collège · 265 en lycée.`,
+      trigger: `PPS + orientation CDAPH — les deux sont obligatoires.`,
+      note: `UEMA (Unité d'Enseignement Maternelle Autisme) pour la maternelle à Paris.`,
+      degree: ["elementaire","college","lycee"],
+      links: ["PPS","CDAPH","MDPH","AESH","CAPPEI","ERSEH"]
+    },
+    {
+      id: "UPE2A", category: "structure", label: "UPE2A",
+      fullName: "Unité Pédagogique pour Élèves Allophones Arrivants",
+      tagline: "ACCUEIL ÉLÈVES NON FRANCOPHONES — ARRIVÉE EN FRANCE",
+      profile: `Élève nouvellement arrivé en France ne maîtrisant pas le français — qu'il soit scolarisé antérieurement (EANA) ou non scolarisé antérieurement (NSA).`,
+      examples: [
+        { name: "Kenji", detail: "6ᵉ, arrivé du Japon — UPE2A collège 12h/semaine, inclus en EPS et arts plastiques, cours de FLS (Français Langue de Scolarisation) le reste du temps" },
+        { name: "Amira", detail: "CE2, arrivée du Maroc avec scolarisation partielle — UPE2A école 9h/semaine, incluse en mathématiques et activités artistiques" }
+      ],
+      format: `Groupes restreints · Cours de FLS intensifs · Inclusion progressive en classe ordinaire selon le niveau acquis.`,
+      duration: `En général 1 à 2 ans — durée adaptée aux progrès de l'élève.`,
+      note: `Si des difficultés persistent au-delà de la langue (dys-, TND, trauma), un PPRE, PAP ou saisine MDPH peut être déclenché en parallèle.`,
+      parisData: `Présent dans de nombreux établissements parisiens · Lycée professionnel Chennevière-Malézieux (12ᵉ) dispose d'une UPE2A.`,
+      degree: ["elementaire","college","lycee"],
+      links: ["PPRE","PAP","MDPH"]
+    },
+    {
+      id: "SEGPA", category: "structure", label: "SEGPA",
+      fullName: "Section d'Enseignement Général et Professionnel Adapté",
+      tagline: "CLASSE ADAPTÉE — COLLÈGE UNIQUEMENT",
+      profile: `Difficultés scolaires graves et persistantes sans handicap reconnu — PPRE et PAP épuisés sans résultat.`,
+      examples: [
+        { name: "Lyes", detail: "CM2, non-lecteur à 11 ans, pas de TSA diagnostiqué, orientation SEGPA après bilan Psy-EN" }
+      ],
+      format: `Classe dans le collège, pédagogie différenciée, ateliers professionnels, orientation CAP en fin de 3ᵉ SEGPA.`,
+      trigger: `Orientation DASEN après avis Psy-EN — PPS non requis.`,
+      degree: ["college"],
+      links: ["PPRE","PAP","PsyEN","DASEN"]
+    },
+    {
+      id: "IME", category: "structure", label: "IME",
+      fullName: "Institut Médico-Éducatif",
+      tagline: "ÉTABLISSEMENT MÉDICO-SOCIAL SPÉCIALISÉ",
+      profile: `Déficience intellectuelle modérée à sévère, TSA sévère — scolarité et soins thérapeutiques intégrés dans le même lieu.`,
+      examples: [
+        { name: "Sofiane", detail: "9 ans, trisomie 21 avec DI sévère, communication par pictogrammes, maintien en milieu ordinaire impossible" }
+      ],
+      trigger: `Notification CDAPH obligatoire (via dossier MDPH).`,
+      parisAlert: `Environ 500 élèves en attente de place à Paris — liste d'attente longue.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["CDAPH","MDPH","PPS","CAPPEI"]
+    },
+    {
+      id: "ITEP", category: "structure", label: "ITEP",
+      fullName: "Institut Thérapeutique, Éducatif et Pédagogique",
+      tagline: "ÉTABLISSEMENT MÉDICO-SOCIAL SPÉCIALISÉ",
+      profile: `Troubles comportementaux importants, souffrance psychique sévère, crises répétées — sans DI associée.`,
+      examples: [
+        { name: "Rayan", detail: "CM2, crises violentes quotidiennes, plusieurs exclusions, suivi psy insuffisant en milieu ordinaire" }
+      ],
+      trigger: `Notification CDAPH obligatoire.`,
+      degree: ["elementaire","college","lycee"],
+      links: ["CDAPH","MDPH","PPS"]
+    },
+    {
+      id: "SESSAD", category: "structure", label: "SESSAD",
+      fullName: "Service d'Éducation Spéciale et de Soins À Domicile",
+      tagline: "SUIVI À DOMICILE ET DANS L'ÉCOLE — EN COMPLÉMENT DU PPS",
+      profile: `Élève avec PPS maintenu en milieu ordinaire mais nécessitant un suivi thérapeutique régulier — TSA léger, moteur, auditif.`,
+      examples: [
+        { name: "Sara", detail: "3ᵉ, paralysie cérébrale légère, kiné + ortho du SESSAD interviennent dans l'école 2×/semaine" }
+      ],
+      format: `Équipe pluridisciplinaire qui se déplace à l'école ou au domicile — complément du PPS, pas substitution.`,
+      trigger: `Notification CDAPH obligatoire.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PPS","CDAPH","MDPH","ESS","ERSEH"]
+    },
+    {
+      id: "EMAS", category: "structure", label: "EMAS",
+      fullName: "Équipe Mobile d'Appui médico-social à la Scolarisation",
+      tagline: "ÉQUIPE MOBILE — MOBILISÉE PAR LE PAS",
+      profile: `Situations complexes en attente MDPH, TSA sévère, troubles comportementaux intenses — quand l'école ne sait plus comment faire.`,
+      examples: [
+        { name: "Élève CE2", detail: "comportements auto-agressifs non encore reconnu MDPH — l'EMAS intervient en classe à la demande du PAS" }
+      ],
+      format: `Équipe pluridisciplinaire qui se déplace directement dans l'école sur sollicitation du PAS.`,
+      authority: `Coordonnée par l'ARS · Liens directs avec le coordinateur PAS.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PAS","CoordPAS","MDPH"]
     }
   ]
 };
