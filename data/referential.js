@@ -445,6 +445,166 @@ const DATA = {
       authority: `Coordonnée par l'ARS · Liens directs avec le coordinateur PAS.`,
       degree: ["maternelle","elementaire","college","lycee"],
       links: ["PAS","CoordPAS","MDPH"]
+    },
+
+    /* ===== 7. SOINS EXTERNES ===== */
+    {
+      id: "CMP", category: "soin", label: "CMP",
+      fullName: "Centre Médico-Psychologique",
+      tagline: "SOIN EXTERNE — SUIVI PSY ET PSYCHIATRIQUE",
+      profile: `Anxiété, dépression, troubles psychiques — suivi psy et psychiatrique sans diagnostic scolaire requis.`,
+      examples: [
+        { name: "Mia", detail: "5ᵉ, anxiété généralisée, phobie scolaire installée, prise en charge psychiatrique + psy hebdomadaire au CMP" }
+      ],
+      trigger: `Sur prescription médicale ou spontanément — gratuit (secteur public).`,
+      parisAlert: `6 à 18 mois à Paris — orienter très tôt, ne pas attendre une crise.`,
+      linksText: `Liaison Psy-EN · Peut déboucher sur PAP ou saisine MDPH.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PsyEN","PAP","MDPH","MaitreG","pHARe"]
+    },
+    {
+      id: "CMPP", category: "soin", label: "CMPP",
+      fullName: "Centre Médico-Psycho-Pédagogique",
+      tagline: "SOIN + BILAN EXTERNE — TROUBLES DES APPRENTISSAGES",
+      profile: `Troubles dys-, TND, TDAH, difficultés d'apprentissage — bilans + rééducation orthophonie / psychomotricité / psychologie.`,
+      examples: [
+        { name: "Paul", detail: "CE1, suspicion dyspraxie + TDA, bilan CMPP nourrit le PAP et peut déclencher une saisine MDPH" }
+      ],
+      trigger: `Sur prescription médicale — gratuit (secteur public).`,
+      parisAlert: `6 à 18 mois à Paris — orienter via Psy-EN ou médecin scolaire dès la suspicion, pas après.`,
+      linksText: `Liaison Psy-EN + enseignants · Alimente PAP · Peut déclencher saisine MDPH.`,
+      degree: ["maternelle","elementaire","college"],
+      links: ["PsyEN","PAP","MDPH","PPS"]
+    },
+    {
+      id: "CAPP", category: "soin", label: "CAPP",
+      fullName: "Centre d'Adaptation Psycho-Pédagogique",
+      tagline: "SOIN + SOUTIEN EXTERNE — SPÉCIFIQUE PARIS VILLE",
+      profile: `Élèves scolarisés à Paris présentant des difficultés scolaires, comportementales ou relationnelles — sans diagnostic lourd requis.`,
+      examples: [
+        { name: "Yasmine", detail: "CE2, difficultés de concentration et relationnel fragile, orientée par la Psy-EN vers le CAPP pour bilan et soutien psycho-pédagogique" }
+      ],
+      specificity: `Service gratuit de la Ville de Paris — distinct du CMPP (EN) et du CMP (soin psychiatrique) · Travaille en lien direct avec les écoles parisiennes.`,
+      role: `Bilans psycho-pédagogiques, entretiens de soutien, groupes thérapeutiques légers, liaison avec Psy-EN et enseignants.`,
+      trigger: `Orienté par la Psy-EN, le médecin scolaire ou la famille · Accord parental requis.`,
+      linksText: `← Psy-EN · → peut alimenter PAP ou saisine MDPH si le bilan le justifie.`,
+      degree: ["maternelle","elementaire"],
+      links: ["PsyEN","PAP","MDPH"]
     }
-  ]
+  ],
+
+  /* ==================================================
+     MÉTA : chaîne d'escalade, tableau comparatif,
+     actions FCPE, lectures rapides par degré
+     ================================================== */
+  escalation: [
+    { level: "Tous élèves",
+      category: "escalade",
+      dispositifs: ["LPI"],
+      description: "Adaptations légères en classe · Enseignant seul · Aucune démarche externe · Trace dans le LPI." },
+    { level: "1ᵉʳ niveau (rentrée 2026)",
+      category: "escalade",
+      dispositifs: ["PAS"],
+      description: "Réponse rapide sans diagnostic · Famille, enseignant ou directeur · Coordinateur + éducateur médico-social." },
+    { level: "Difficulté persistante",
+      category: "rased",
+      dispositifs: ["PPRE"],
+      description: "Avec intervention RASED · Enseignant + IEN + famille · Maître E / Maître G / Psy-EN mobilisables · École uniquement." },
+    { level: "Avis médical requis",
+      category: "accompagnement",
+      dispositifs: ["PAP","PAI"],
+      description: "Médecin scolaire ou traitant · Chef d'établissement · Aménagements valables aux examens · 1ᵉʳ + 2ⁿᵈ degré." },
+    { level: "Handicap reconnu",
+      category: "soin",
+      dispositifs: ["PPS"],
+      description: "Droits notifiés par CDAPH via MDPH · AESH · ULIS · Matériel adapté · Orientation ESMS · Délai long à Paris." }
+  ],
+
+  escalationRule: `Un PPRE sans résultat doit conduire à un PAP ou une saisine MDPH — pas rester bloqué faute de moyens. Le PAS n'est pas un plafond.`,
+
+  comparison: {
+    columns: [
+      { key: "profile",   label: "Public cible" },
+      { key: "medical",   label: "Avis médical" },
+      { key: "trigger",   label: "Qui le déclenche" },
+      { key: "duration",  label: "Durée" },
+      { key: "rights",    label: "Droits / Aménagements" },
+      { key: "degree",    label: "Degré" },
+      { key: "paris",     label: "Délai Paris" }
+    ],
+    rows: [
+      { id:"PPRE", medical:"Non",
+        profile:"Difficultés scolaires CP-CM2",
+        trigger:"Enseignant + Famille",
+        duration:"6-12 semaines, renouvelable",
+        rights:"Aide pédagogique RASED, Maître E/G",
+        degree:["elementaire"],
+        paris:"Immédiat" },
+      { id:"PAP", medical:"Oui (médecin)",
+        profile:"Troubles Dys / TDAH",
+        trigger:"Médecin + Famille + Chef d'étab.",
+        duration:"Annuelle, renouvelable",
+        rights:"Tiers-temps, police adaptée, aménagements examens",
+        degree:["elementaire","college","lycee"],
+        paris:"Quelques semaines" },
+      { id:"PAI", medical:"Oui (médecin)",
+        profile:"Maladie chronique, allergie, protocole d'urgence",
+        trigger:"Médecin + Famille + Directeur",
+        duration:"Annuelle",
+        rights:"Protocole d'urgence, médicaments, repas adaptés",
+        degree:["maternelle","elementaire","college","lycee"],
+        paris:"Quelques jours à semaines" },
+      { id:"PPS", medical:"Oui (MDPH/CDAPH)",
+        profile:"Handicap reconnu",
+        trigger:"Famille + MDPH",
+        duration:"Longue durée, révision annuelle (ESS)",
+        rights:"AESH, ULIS, matériel adapté, ESMS",
+        degree:["maternelle","elementaire","college","lycee"],
+        paris:"Plusieurs mois (MDPH)" },
+      { id:"PAS", medical:"Non",
+        profile:"Besoins particuliers, dès rentrée 2026",
+        trigger:"Famille / Enseignant / Directeur",
+        duration:"Variable — réponse rapide",
+        rights:"Mobilise RASED, EMAS, AESH sans attendre MDPH",
+        degree:["maternelle","elementaire","college","lycee"],
+        paris:"Rentrée 2026 — 12ᵉ" }
+    ]
+  },
+
+  readingPath: {
+    ecole: {
+      label: "Lecture rapide — école (1ᵉʳ degré)",
+      text: "Signal → PAS (2026) → PPRE + Maître E / Maître G / Psy-EN (RASED) → PAP ou PAI (médecin) → MDPH → PPS → AESH + ULIS ou SESSAD / IME / ITEP via CDAPH. CMP et CMPP dès la suspicion, en parallèle."
+    },
+    college: {
+      label: "Lecture rapide — collège (2ⁿᵈ degré)",
+      text: "RASED absent. Leviers : PAS (2026) → PAP / PAI → PPS / MDPH → AESH + ULIS collège ou SEGPA. SESSAD intervient dans l'établissement si PPS actif. CMP / CMPP en parallèle."
+    }
+  },
+
+  alerts: [
+    { label: "CMP / CMPP",   value: "6 à 18 mois", kind: "wait" },
+    { label: "MDPH",         value: "Plusieurs mois", kind: "wait" },
+    { label: "Places IME / ITEP", value: "≈ 500 élèves en attente", kind: "wait" },
+    { label: "AESH Paris",   value: "16 % des élèves notifiés sans accompagnant", kind: "alert" },
+    { label: "Vigilance PAS", value: "Ne crée pas de nouveaux postes — réorganise des ressources existantes dont le RASED. Signaler tout cas où le PAS retarde une saisine MDPH légitime.", kind: "alert" }
+  ],
+
+  fcpeActions: [
+    { scope: "École",       text: "Vérifier en conseil d'école si les 3 postes RASED (12A-3) sont pourvus et actifs. Si un poste est vacant, le signaler à l'UL12 et à la FCPE Paris." },
+    { scope: "École",       text: "Demander combien d'élèves sont en PPRE, PAP ou PAI — et si le RASED est impliqué dans leur suivi." },
+    { scope: "Collège",     text: "Demander combien d'élèves ont un PAP actif et si les aménagements sont bien appliqués par tous les enseignants (point de friction fréquent)." },
+    { scope: "Rentrée 2026", text: "Identifier l'établissement pivot du 12ᵉ, son coordinateur PAS, et les modalités de saisine par les familles." },
+    { scope: "Vigilance",   text: "Signaler tout cas où le PAS empêche ou retarde une saisine MDPH légitime à la commission École Inclusive FCPE Paris." }
+  ],
+
+  degreeLabels: {
+    maternelle:  "Maternelle",
+    elementaire: "Élémentaire",
+    college:     "Collège",
+    lycee:       "Lycée"
+  }
 };
+
+/* Index pratique pour l'app */
+DATA.nodesById = Object.fromEntries(DATA.nodes.map(n => [n.id, n]));
