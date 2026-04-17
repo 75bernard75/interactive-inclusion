@@ -232,6 +232,93 @@ const DATA = {
       links: ["PPRE","PPS","MDPH","CMP","CMPP","CAPP","SEGPA","MaitreE","MaitreG"]
     }
 
-    /* Suite dans le commit suivant : instances, accompagnement, structures, soins */
+    /* ===== 4. INSTANCES ===== */
+    {
+      id: "MDPH", category: "instance", label: "MDPH",
+      fullName: "Maison Départementale des Personnes Handicapées",
+      tagline: "INSTANCE DÉPARTEMENTALE — PARIS 75",
+      role: `Instruit les dossiers de reconnaissance de handicap · mandate la CDAPH pour notifier les droits (AESH, ULIS, PPS, orientation ESMS).`,
+      trigger: `La famille directement — ou orientée par Psy-EN, médecin scolaire, équipe éducative.`,
+      parisAlert: `Plusieurs mois à Paris — saisir sans attendre, dès que la situation le justifie.`,
+      risk: `Le PAS ne doit pas retarder une saisine MDPH légitime — point de vigilance FCPE.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["CDAPH","PPS","AESH","ULIS","IME","ITEP","SESSAD","PsyEN","ERSEH"]
+    },
+    {
+      id: "CDAPH", category: "instance", label: "CDAPH",
+      fullName: "Commission des Droits et de l'Autonomie des Personnes Handicapées",
+      tagline: "INSTANCE DÉCISIONNELLE — AU SEIN DE LA MDPH",
+      role: `Statue sur les droits après évaluation MDPH · notifie l'AESH, le PPS, l'orientation en ESMS (IME, ITEP, SESSAD).`,
+      composition: `Médecins, éducateurs, représentants des familles, services sociaux.`,
+      recourse: `Tribunal administratif si notification refusée ou jugée insuffisante par la famille.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["MDPH","PPS","AESH","ULIS","IME","ITEP","SESSAD"]
+    },
+    {
+      id: "ERSEH", category: "instance", label: "ERSEH",
+      fullName: "Enseignant Référent pour la Scolarisation des Élèves en Situation de Handicap",
+      tagline: "ACTEUR PIVOT — COORDINATION PPS",
+      role: `Coordonne la mise en œuvre du PPS : fait le lien entre la famille, les enseignants, l'établissement, la MDPH et les structures médico-sociales.`,
+      examples: [
+        { name: "Parents d'Adam", detail: "TSA, PPS en 4ᵉ — l'ERSEH convoque l'ESS chaque année pour ajuster le PPS, l'AESH et les orientations" }
+      ],
+      triggers: `Convoque l'ESS (Équipe de Suivi de Scolarisation) — réunion annuelle obligatoire avec famille, enseignants et partenaires.`,
+      contact: `Interlocuteur pour les familles qui ont du mal à faire appliquer le PPS · Premier recours avant le DASEN ou le tribunal administratif.`,
+      how: `À contacter via le directeur d'école ou le chef d'établissement — liste disponible auprès du SEI Académie de Paris.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PPS","MDPH","ESS","AESH","SEI","DASEN"]
+    },
+    {
+      id: "ESS", category: "instance", label: "ESS",
+      fullName: "Équipe de Suivi de Scolarisation",
+      tagline: "RÉUNION ANNUELLE OBLIGATOIRE — ÉLÈVES AVEC PPS",
+      role: `Bilan annuel du PPS en cours, ajustement des aménagements, préparation des transitions (école→collège, collège→lycée) et des orientations.`,
+      profile: `Tout élève avec un PPS actif — participation obligatoire de la famille.`,
+      examples: [
+        { name: "Adam, 4ᵉ TSA", detail: "ESS en novembre : ERSEH + parents + prof principal + AESH + représentant SESSAD — révision des objectifs, demande d'augmentation AESH pour les examens blancs" }
+      ],
+      trigger: `Convoquée par l'ERSEH — au moins une fois par an, ou à la demande de la famille à tout moment.`,
+      composition: `ERSEH (obligatoire) · famille (obligatoire) · enseignants · chef d'établissement · AESH · partenaires médico-sociaux (SESSAD, IME…) si concernés.`,
+      rightFamily: `La famille peut demander la convocation d'une ESS à tout moment si elle estime que le PPS n'est pas appliqué ou doit être revu.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PPS","ERSEH","AESH","SESSAD","IME"]
+    },
+    {
+      id: "SEI", category: "instance", label: "SEI",
+      fullName: "Service de l'Éducation Inclusive — Académie de Paris",
+      tagline: "PILOTAGE ACADÉMIQUE",
+      role: `Pilote les AESH, ULIS, données MDPH, déploiement des PAS à Paris · Interlocuteur sur les cas complexes.`,
+      authority: `Sous autorité du DASEN · Coordonne avec l'ARS pour PAS et EMAS.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["DASEN","PAS","AESH","ULIS","EMAS","ERSEH"]
+    },
+    {
+      id: "DASEN", category: "instance", label: "DASEN",
+      fullName: "Directeur Académique des Services de l'Éducation Nationale",
+      tagline: "PILOTAGE ACADÉMIQUE",
+      role: `Valide ouvertures/fermetures ULIS · pilote les PAS (autorité hiérarchique du coordinateur PAS).`,
+      linksText: `Pilote le SEI · Autorité sur IEN · Arbitre les orientations SEGPA.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["SEI","IEN","ULIS","PAS","CoordPAS","SEGPA"]
+    },
+    {
+      id: "IEN", category: "instance", label: "IEN",
+      fullName: "Inspecteur de l'Éducation Nationale de circonscription",
+      tagline: "PILOTAGE LOCAL — 1ᵉʳ DEGRÉ",
+      role: `Pilote le RASED localement (circonscription 12A-3) · valide les demandes d'aide spécialisée · reçoit les remontées des directeurs.`,
+      contact: `À contacter si un poste RASED est vacant ou si une demande d'aide reste sans réponse.`,
+      degree: ["maternelle","elementaire"],
+      links: ["MaitreE","MaitreG","PsyEN","CAPPEI","DASEN"]
+    },
+    {
+      id: "CoordPAS", category: "instance", label: "Coord. PAS",
+      fullName: "Coordinateur du Pôle d'Appui à la Scolarité",
+      tagline: "INTERLOCUTEUR CENTRAL DU PAS — RENTRÉE 2026",
+      profile: `Personnel EN à plein temps — souvent enseignant spécialisé ou Psy-EN — sous autorité hiérarchique du DASEN.`,
+      role: `Point de contact unique familles + équipes · Mobilise RASED, EMAS, AESH · Coordonne les réponses de premier niveau.`,
+      parisAlert: `12ᵉ arrondissement : identifier l'établissement pivot et le coordinateur PAS dès la rentrée 2026.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PAS","DASEN","EMAS","AESH","MaitreE","MaitreG","PsyEN","CAPPEI"]
+    }
   ]
 };
