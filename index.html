@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1f3a68">
+  <meta name="description" content="Référentiel interactif de l'école inclusive dans le 12e arrondissement de Paris — FCPE UL12.">
+  <title>École Inclusive · Paris 12ᵉ — FCPE UL12</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <header class="app-header" role="banner">
+    <div class="brand">
+      <span class="brand-badge" aria-hidden="true">UL<br>12</span>
+      <div class="brand-text">
+        <h1>École Inclusive <span class="brand-sub">Paris 12ᵉ</span></h1>
+        <p class="brand-tagline">Référentiel interactif · FCPE UL12 · Avril 2026</p>
+      </div>
+    </div>
+
+    <nav class="view-switch" role="tablist" aria-label="Changer de vue">
+      <button role="tab" data-view="mindmap" aria-selected="true" aria-controls="view-mindmap">
+        <span class="view-ico" aria-hidden="true">◈</span><span>Mindmap</span>
+      </button>
+      <button role="tab" data-view="parcours" aria-selected="false" aria-controls="view-parcours">
+        <span class="view-ico" aria-hidden="true">→</span><span>Parcours</span>
+      </button>
+      <button role="tab" data-view="compare" aria-selected="false" aria-controls="view-compare">
+        <span class="view-ico" aria-hidden="true">▦</span><span>Comparatif</span>
+      </button>
+      <button role="tab" data-view="liste" aria-selected="false" aria-controls="view-liste">
+        <span class="view-ico" aria-hidden="true">☰</span><span>Liste</span>
+      </button>
+    </nav>
+
+    <div class="header-actions">
+      <button id="search-open" class="icon-btn" aria-label="Rechercher (Ctrl+K)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <kbd>Ctrl K</kbd>
+      </button>
+      <button id="print-btn" class="icon-btn" aria-label="Imprimer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/></svg>
+      </button>
+      <button id="help-btn" class="icon-btn" aria-label="Aide">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9a2.5 2.5 0 015 0c0 2-2.5 2.5-2.5 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="app-main">
+    <section id="view-mindmap" class="view view-mindmap" role="tabpanel" aria-labelledby="tab-mindmap">
+      <div class="mindmap-toolbar">
+        <div class="filter-group" role="group" aria-label="Filtrer par degré">
+          <span class="filter-label">Degré</span>
+          <label><input type="checkbox" value="maternelle" checked><span>Maternelle</span></label>
+          <label><input type="checkbox" value="elementaire" checked><span>Élémentaire</span></label>
+          <label><input type="checkbox" value="college" checked><span>Collège</span></label>
+          <label><input type="checkbox" value="lycee" checked><span>Lycée</span></label>
+        </div>
+        <div class="zoom-group" role="group" aria-label="Zoom">
+          <button class="icon-btn" data-zoom="out" aria-label="Dézoomer">−</button>
+          <button class="icon-btn" data-zoom="reset" aria-label="Recentrer">◎</button>
+          <button class="icon-btn" data-zoom="in" aria-label="Zoomer">+</button>
+        </div>
+      </div>
+      <div id="mindmap-host" class="mindmap-host" tabindex="0" aria-label="Mindmap de l'école inclusive">
+        <svg id="mindmap-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arborescence des dispositifs"></svg>
+      </div>
+      <div class="legend" aria-label="Légende des catégories">
+        <span class="legend-item" data-cat="escalade">Chaîne d'escalade</span>
+        <span class="legend-item" data-cat="prevention">Prévention</span>
+        <span class="legend-item" data-cat="rased">RASED</span>
+        <span class="legend-item" data-cat="instance">Instances</span>
+        <span class="legend-item" data-cat="accompagnement">Accompagnement</span>
+        <span class="legend-item" data-cat="structure">Structures</span>
+        <span class="legend-item" data-cat="soin">Soins externes</span>
+      </div>
+    </section>
+
+    <section id="view-parcours" class="view view-parcours" role="tabpanel" hidden></section>
+    <section id="view-compare" class="view view-compare" role="tabpanel" hidden></section>
+    <section id="view-liste" class="view view-liste" role="tabpanel" hidden></section>
+  </main>
+
+  <aside id="details-panel" class="details-panel" aria-labelledby="details-title" aria-hidden="true">
+    <header class="details-head">
+      <span id="details-cat" class="details-cat"></span>
+      <button id="details-close" class="icon-btn" aria-label="Fermer">✕</button>
+    </header>
+    <div class="details-body">
+      <h2 id="details-title"></h2>
+      <p id="details-fullname" class="details-fullname"></p>
+      <div id="details-tagline" class="details-tagline"></div>
+      <div id="details-sections"></div>
+      <div id="details-links" class="details-links" hidden>
+        <h3>Dispositifs liés</h3>
+        <ul></ul>
+      </div>
+      <div class="details-actions">
+        <button id="details-focus" class="btn-ghost">Centrer dans la mindmap</button>
+      </div>
+    </div>
+  </aside>
+
+  <dialog id="search-dialog" class="search-dialog" aria-label="Rechercher">
+    <form method="dialog" class="search-form">
+      <input id="search-input" type="search" placeholder="Chercher un dispositif, un sigle, un profil…" autocomplete="off" spellcheck="false">
+      <button type="button" id="search-close" class="icon-btn" aria-label="Fermer">Esc</button>
+    </form>
+    <ul id="search-results" class="search-results" role="listbox"></ul>
+    <p class="search-hint">↑ ↓ pour naviguer · Entrée pour ouvrir · Esc pour fermer</p>
+  </dialog>
+
+  <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title">
+    <form method="dialog">
+      <header><h2 id="help-title">Aide & raccourcis</h2><button class="icon-btn" aria-label="Fermer">✕</button></header>
+      <dl>
+        <dt><kbd>Ctrl</kbd>+<kbd>K</kbd></dt><dd>Ouvrir la recherche</dd>
+        <dt><kbd>1</kbd> – <kbd>4</kbd></dt><dd>Basculer entre Mindmap / Parcours / Comparatif / Liste</dd>
+        <dt><kbd>Esc</kbd></dt><dd>Fermer la fiche ou un dialogue</dd>
+        <dt><kbd>Tab</kbd></dt><dd>Naviguer au clavier</dd>
+        <dt><kbd>Entrée</kbd></dt><dd>Ouvrir la fiche du nœud sélectionné</dd>
+        <dt><kbd>Espace</kbd></dt><dd>Déplier / replier un nœud</dd>
+      </dl>
+      <p class="help-sources">
+        Sources : référentiel FCPE UL12 (avril 2026) · AG FCPE Paris 17/01/2026 · flyer RASED 12A-3 ·
+        circulaires MEN sept. 2025 · données SEI MDPH Paris nov. 2025.
+      </p>
+    </form>
+  </dialog>
+
+  <footer class="app-footer">
+    <p>FCPE UL12 · Paris 12ᵉ · Référentiel école inclusive · Avril 2026</p>
+    <p class="alert-inline">
+      <strong>Alerte délais Paris</strong> · CMP/CMPP : 6-18 mois · MDPH : plusieurs mois · IME/ITEP : ~500 en attente — saisir tôt.
+    </p>
+  </footer>
+
+  <script src="data/referential.js"></script>
+  <script src="scripts/mindmap.js"></script>
+  <script src="scripts/details.js"></script>
+  <script src="scripts/parcours.js"></script>
+  <script src="scripts/compare.js"></script>
+  <script src="scripts/liste.js"></script>
+  <script src="scripts/search.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
