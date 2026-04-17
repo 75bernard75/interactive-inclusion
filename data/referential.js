@@ -230,7 +230,7 @@ const DATA = {
       note: `Des Psy-EN option B existent au collège/lycée pour l'orientation, hors RASED.`,
       degree: ["maternelle","elementaire"],
       links: ["PPRE","PPS","MDPH","CMP","CMPP","CAPP","SEGPA","MaitreE","MaitreG"]
-    }
+    },
 
     /* ===== 4. INSTANCES ===== */
     {
