@@ -17,7 +17,8 @@ const DATA = {
   categories: [
     { id:"escalade",       label:"Chaîne d'escalade",    color:"--c-escalade" },
     { id:"prevention",     label:"Prévention",           color:"--c-prevention" },
-    { id:"rased",          label:"RASED",                color:"--c-rased" },
+    { id:"rased",          label:"RASED (1ᵉʳ degré)",    color:"--c-rased" },
+    { id:"second-degre",   label:"2ⁿᵈ degré",            color:"--c-second-degre" },
     { id:"instance",       label:"Instances",            color:"--c-instance" },
     { id:"accompagnement", label:"Accompagnement",       color:"--c-accompagnement" },
     { id:"structure",      label:"Structures",           color:"--c-structure" },
@@ -33,8 +34,10 @@ const DATA = {
         leaves:["LPI","PAS","PPRE","PAP","PAI","PPS"] },
       { id:"cat-prevention",     label:"Prévention",           category:"prevention",
         leaves:["pHARe"] },
-      { id:"cat-rased",          label:"RASED",                category:"rased",
+      { id:"cat-rased",          label:"RASED (1ᵉʳ degré)",    category:"rased",
         leaves:["CAPPEI","MaitreE","MaitreG","PsyEN"] },
+      { id:"cat-second-degre",   label:"2ⁿᵈ degré",            category:"second-degre",
+        leaves:["CPE","MedecinScolaire","InfirmierScolaire","AssistantSocial","PsyENB"] },
       { id:"cat-instance",       label:"Instances",            category:"instance",
         leaves:["MDPH","CDAPH","ERSEH","ESS","SEI","DASEN","IEN","CoordPAS"] },
       { id:"cat-accompagnement", label:"Accompagnement",       category:"accompagnement",
@@ -490,6 +493,71 @@ const DATA = {
       linksText: `← Psy-EN · → peut alimenter PAP ou saisine MDPH si le bilan le justifie.`,
       degree: ["maternelle","elementaire"],
       links: ["PsyEN","PAP","MDPH"]
+    },
+
+    /* ===== 8. ACTEURS DU 2ⁿᵈ DEGRÉ ===== */
+    {
+      id: "CPE", category: "second-degre", label: "CPE",
+      fullName: "Conseiller Principal d'Éducation",
+      tagline: "ACTEUR PIVOT — COLLÈGE ET LYCÉE",
+      role: `Responsable de la vie scolaire : assiduité, climat de classe, médiation entre élèves, équipes et familles. Premier interlocuteur en cas de difficulté de comportement, d'absentéisme, de tensions, de harcèlement.`,
+      profile: `Tout élève du collège et du lycée — particulièrement utile en cas d'absentéisme, refus scolaire, conflits, signalement de harcèlement, suivi quotidien des élèves avec PAP / PPS.`,
+      examples: [
+        { name: "Nina", detail: "5ᵉ, absences répétées sans motif clair — la CPE convoque la famille, organise un suivi avec le professeur principal et oriente vers l'infirmier scolaire" }
+      ],
+      contact: `À contacter en parallèle du professeur principal pour toute difficulté hors apprentissage pur.`,
+      degree: ["college","lycee"],
+      links: ["pHARe","InfirmierScolaire","AssistantSocial","MedecinScolaire","PsyENB","PAP","PPS"]
+    },
+    {
+      id: "MedecinScolaire", category: "second-degre", label: "Médecin scolaire",
+      fullName: "Médecin de l'Éducation Nationale",
+      tagline: "AVIS MÉDICAL — TOUS DEGRÉS",
+      role: `Bilan médical, signature du PAP, validation du PAI, avis pour aménagements d'examens. Lien avec les familles, les médecins traitants, la MDPH.`,
+      profile: `Tout élève dont la situation requiert un avis médical scolaire — diagnostic dys / TDAH, allergie, maladie chronique, suspicion de handicap, demande de tiers-temps aux examens.`,
+      examples: [
+        { name: "Léa", detail: "5ᵉ, dyslexique — le médecin scolaire valide le PAP et précise les aménagements (tiers-temps, police adaptée)" },
+        { name: "Inès", detail: "CE1, allergie sévère — le médecin scolaire rédige le PAI avec le médecin traitant et la famille" }
+      ],
+      contact: `À demander via le directeur d'école ou le chef d'établissement. Disponibilité variable selon la circonscription parisienne.`,
+      parisAlert: `Sous-effectif chronique à Paris — demander un rendez-vous tôt si un PAP / PAI est nécessaire.`,
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PAP","PAI","PPS","MDPH","InfirmierScolaire","CMPP"]
+    },
+    {
+      id: "InfirmierScolaire", category: "second-degre", label: "Infirmier scolaire",
+      fullName: "Infirmier(ère) de l'Éducation Nationale",
+      tagline: "PRÉSENCE QUOTIDIENNE — SURTOUT 2ⁿᵈ DEGRÉ",
+      role: `Présence quotidienne dans l'établissement (essentiellement collège / lycée) : écoute, soins, premier accueil en cas de mal-être, mise en œuvre du PAI, médiation avec la famille et orientation vers le médecin scolaire ou le CMP.`,
+      profile: `Tout élève en souffrance physique ou psychique — anxiété scolaire, crises, automutilation, vécu de harcèlement, application d'un protocole PAI.`,
+      examples: [
+        { name: "Mia", detail: "5ᵉ, crises d'angoisse en classe — l'infirmière scolaire la reçoit régulièrement, prévient la famille et oriente vers le CMP" }
+      ],
+      degree: ["maternelle","elementaire","college","lycee"],
+      links: ["PAI","pHARe","CMP","MedecinScolaire","CPE","AssistantSocial"]
+    },
+    {
+      id: "AssistantSocial", category: "second-degre", label: "Assistant social",
+      fullName: "Assistant(e) de service social — Éducation Nationale",
+      tagline: "ACCOMPAGNEMENT SOCIAL — COLLÈGE ET LYCÉE",
+      role: `Aide sociale aux familles, suivi des situations difficiles (précarité, violence intra-familiale, signalement enfance en danger), aide aux dossiers MDPH et bourses, lien avec les services de la mairie et de l'ASE.`,
+      profile: `Famille en difficulté sociale ou administrative · Élève en risque de décrochage · Aide à la constitution du dossier MDPH · Médiation avec les services extérieurs.`,
+      contact: `Présent dans la majorité des collèges et lycées parisiens. À demander via le secrétariat ou la CPE.`,
+      degree: ["college","lycee"],
+      links: ["MDPH","CPE","InfirmierScolaire","SEGPA"]
+    },
+    {
+      id: "PsyENB", category: "second-degre", label: "Psy-EN B",
+      fullName: "Psychologue de l'Éducation Nationale — option Éducation, Développement et Conseil en Orientation",
+      tagline: "ORIENTATION ET BILAN — COLLÈGE ET LYCÉE",
+      role: `Bilan psychologique, conseil en orientation (collège, lycée, post-bac), accompagnement du décrochage scolaire, lien avec la MDPH pour les saisines en 2ⁿᵈ degré.`,
+      profile: `Élève en difficulté d'orientation, décrochage, mal-être, suspicion de handicap non encore reconnu, projet ULIS / SEGPA / lycée pro.`,
+      examples: [
+        { name: "Yanis", detail: "3ᵉ, hésitations entre voie générale et CAP, difficultés scolaires — le Psy-EN B fait un bilan, propose un projet d'orientation et oriente vers la SEGPA si besoin" }
+      ],
+      note: `Distinct du Psy-EN option A (RASED, 1ᵉʳ degré). En 2ⁿᵈ degré, le Psy-EN B intervient principalement via le CIO (Centre d'Information et d'Orientation) ou en établissement.`,
+      degree: ["college","lycee"],
+      links: ["PPS","MDPH","SEGPA","ULIS","PsyEN","DASEN"]
     }
   ],
 
@@ -699,3 +767,76 @@ DATA.glossary = Object.assign(
 DATA.glossaryList = Object.entries(DATA.glossary)
   .map(([k, v]) => ({ acronym: k, full: v }))
   .sort((a, b) => a.acronym.localeCompare(b.acronym, "fr", { sensitivity: "base" }));
+
+/* ==================================================
+   CLASSES — niveau scolaire explicite par fiche
+   ================================================== */
+DATA.classes = {
+  /* Chaîne d'escalade */
+  LPI:  "TPS — Terminale (toute la scolarité, maternelle au lycée)",
+  PAS:  "TPS — Terminale (toute la scolarité, dès la rentrée 2026)",
+  PPRE: "CP — CM2 (élémentaire uniquement, pas en maternelle ni au collège)",
+  PAP:  "CE1 — Terminale (à partir du CE1 ; jamais en maternelle)",
+  PAI:  "TPS — Terminale (toute la scolarité)",
+  PPS:  "TPS — Terminale (toute la scolarité)",
+
+  /* Prévention */
+  pHARe: "CM1 — Terminale (étendu à tout le primaire depuis 2023, en pratique CP — Terminale)",
+
+  /* RASED — 1er degré uniquement */
+  CAPPEI:  "Qualification professionnelle — postes en maternelle, élémentaire, ULIS collège / lycée, IME / ITEP",
+  MaitreE: "TPS — CM2 (maternelle + élémentaire uniquement)",
+  MaitreG: "TPS — CM2 (maternelle + élémentaire uniquement)",
+  PsyEN:   "TPS — CM2 (option A, RASED — 1ᵉʳ degré). Une option B existe au collège / lycée (voir Psy-EN B).",
+
+  /* 2nd degré */
+  CPE:               "6ᵉ — Terminale (collège + lycée uniquement)",
+  MedecinScolaire:   "TPS — Terminale (toute la scolarité, mais effectif sous-doté à Paris)",
+  InfirmierScolaire: "TPS — Terminale (présence renforcée au collège / lycée)",
+  AssistantSocial:   "6ᵉ — Terminale (principalement collège + lycée)",
+  PsyENB:            "6ᵉ — Terminale (collège + lycée — orientation / décrochage)",
+
+  /* Instances */
+  MDPH:     "TPS — Terminale (saisine famille à tout âge)",
+  CDAPH:    "TPS — Terminale (instance interne MDPH)",
+  ERSEH:    "TPS — Terminale (toute la scolarité avec PPS)",
+  ESS:      "TPS — Terminale (réunion annuelle pour tout PPS actif)",
+  SEI:      "TPS — Terminale (pilotage académique Paris)",
+  DASEN:    "TPS — Terminale (pilotage académique départemental)",
+  IEN:      "TPS — CM2 (1ᵉʳ degré uniquement, circonscription 12A-3 dans le 12ᵉ)",
+  CoordPAS: "TPS — Terminale (à identifier dès la rentrée 2026 dans le 12ᵉ)",
+
+  /* Accompagnement */
+  AESH: "TPS — Terminale (toute la scolarité, sur notification CDAPH)",
+  PIAL: "TPS — Terminale (en cours de remplacement par le PAS — rentrée 2026)",
+
+  /* Structures */
+  ULIS:   "CP — Terminale (école, collège, lycée). En maternelle : UEMA (Unité d'Enseignement Maternelle Autisme).",
+  UPE2A:  "CP — Terminale (élémentaire, collège, lycée). En maternelle : accueil direct en classe ordinaire avec accompagnement.",
+  SEGPA:  "5ᵉ — 3ᵉ (collège uniquement)",
+  IME:    "TPS — 20 ans (selon agrément de l'établissement)",
+  ITEP:   "CP — 20 ans (selon agrément, généralement à partir de 6 ans)",
+  SESSAD: "TPS — Terminale (toute la scolarité avec PPS actif)",
+  EMAS:   "TPS — Terminale (toute la scolarité, mobilisée par le PAS)",
+
+  /* Soins externes */
+  CMP:  "TPS — Terminale (et adultes — pas de limite d'âge)",
+  CMPP: "TPS — Terminale (jusqu'à 20 ans en pratique)",
+  CAPP: "TPS — CM2 (1ᵉʳ degré uniquement, Paris uniquement)"
+};
+
+/* Ajout dans comparaison : classes explicites */
+if (DATA.comparison && DATA.comparison.rows) {
+  DATA.comparison.columns = [
+    { key: "profile",   label: "Public cible" },
+    { key: "classes",   label: "Classes" },
+    { key: "medical",   label: "Avis médical" },
+    { key: "trigger",   label: "Qui le déclenche" },
+    { key: "duration",  label: "Durée" },
+    { key: "rights",    label: "Droits / Aménagements" },
+    { key: "paris",     label: "Délai Paris" }
+  ];
+  DATA.comparison.rows.forEach(row => {
+    row.classes = DATA.classes[row.id] || "—";
+  });
+}

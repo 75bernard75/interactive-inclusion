@@ -101,11 +101,11 @@
       sections.appendChild(s);
     });
 
-    // Degré (badges)
+    // Degré (badges) + classes explicites
     if (n.degree && n.degree.length) {
       const s = document.createElement("section");
       s.className = "details-section";
-      s.innerHTML = `<h3>Degré concerné</h3>`;
+      s.innerHTML = `<h3>Degré et classes concernés</h3>`;
       const box = document.createElement("div");
       box.className = "degree-badges";
       n.degree.forEach(d => {
@@ -115,6 +115,15 @@
         box.appendChild(b);
       });
       s.appendChild(box);
+      const cls = DATA.classes && DATA.classes[id];
+      if (cls) {
+        const p = document.createElement("p");
+        p.style.marginTop = ".5rem";
+        p.style.fontSize = "var(--fz-2)";
+        p.style.color = "var(--text-2)";
+        p.innerHTML = `<strong>Niveau précis :</strong> ${UI.abbrify(cls)}`;
+        s.appendChild(p);
+      }
       sections.appendChild(s);
     }
 

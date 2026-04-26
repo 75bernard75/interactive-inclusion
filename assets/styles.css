@@ -39,6 +39,7 @@
   --c-accompagnement: #0b8f7a;  --c-accompagnement-bg: #dff3ef;
   --c-structure:      #197a37;  --c-structure-bg:   #e1f1e2;
   --c-soin:           #b83b3b;  --c-soin-bg:        #fbe4e4;
+  --c-second-degre:   #475569;  --c-second-degre-bg:#eef2f7;
 
   /* Sémantique */
   --bg:       var(--g-1);
@@ -100,6 +101,7 @@
     --c-accompagnement-bg:#0f3029;
     --c-structure-bg:   #102f17;
     --c-soin-bg:        #391a1a;
+    --c-second-degre-bg:#1e2837;
     --warning-bg:       #3a2d13;
   }
 }
@@ -339,6 +341,7 @@ kbd {
 .legend-item[data-cat="accompagnement"] { color: var(--c-accompagnement); }
 .legend-item[data-cat="structure"]      { color: var(--c-structure); }
 .legend-item[data-cat="soin"]           { color: var(--c-soin); }
+.legend-item[data-cat="second-degre"]   { color: var(--c-second-degre); }
 
 /* ----- 6. Details panel (drawer) ----- */
 .details-panel {
@@ -477,6 +480,7 @@ kbd {
 .details-panel[data-cat="accompagnement"] .details-cat { background: var(--c-accompagnement-bg); color: var(--c-accompagnement); }
 .details-panel[data-cat="structure"]      .details-cat { background: var(--c-structure-bg); color: var(--c-structure); }
 .details-panel[data-cat="soin"]           .details-cat { background: var(--c-soin-bg); color: var(--c-soin); }
+.details-panel[data-cat="second-degre"]   .details-cat { background: var(--c-second-degre-bg); color: var(--c-second-degre); }
 
 /* ----- 7. Parcours (timeline) ----- */
 .view-parcours { padding: var(--space-6) var(--space-5); }
