@@ -60,7 +60,7 @@
 
       const body = document.createElement("p");
       body.className = "step-body";
-      body.textContent = step.description;
+      body.innerHTML = UI.abbrify(step.description);
       li.appendChild(body);
 
       track.appendChild(li);
@@ -69,7 +69,7 @@
 
     const rule = document.createElement("div");
     rule.className = "parcours-rule";
-    rule.innerHTML = `<strong>Règle d'escalade FCPE.</strong> ${DATA.escalationRule}`;
+    rule.innerHTML = `<strong>Règle d'escalade FCPE.</strong> ${UI.abbrify(DATA.escalationRule)}`;
     view.appendChild(rule);
 
     // Lectures rapides
@@ -88,9 +88,9 @@
       card.innerHTML = `
         <header style="flex-direction:row;justify-content:flex-start;gap:.6rem;margin-bottom:var(--space-2)">
           <span class="parcours-dot" style="color:var(--c-instance);width:26px;height:26px;font-size:.9rem">↦</span>
-          <h3 style="text-align:left">${b.label}</h3>
+          <h3 style="text-align:left">${UI.escapeHTML(b.label)}</h3>
         </header>
-        <p class="step-body" style="text-align:left">${b.text}</p>`;
+        <p class="step-body" style="text-align:left">${UI.abbrify(b.text)}</p>`;
       twoCol.appendChild(card);
     });
     view.appendChild(twoCol);
@@ -110,7 +110,7 @@
       card.style.borderRadius = "var(--radius-md)";
       card.style.border = "1px solid var(--border)";
       card.style.background = a.kind === "alert" ? "var(--warning-bg)" : "var(--surface)";
-      card.innerHTML = `<strong>${a.label}</strong><br><span style="color:var(--text-2)">${a.value}</span>`;
+      card.innerHTML = `<strong>${UI.escapeHTML(a.label)}</strong><br><span style="color:var(--text-2)">${UI.abbrify(a.value)}</span>`;
       grid.appendChild(card);
     });
     alertsWrap.appendChild(grid);
@@ -131,7 +131,7 @@
       li.style.background = "var(--surface)";
       li.style.borderRadius = "var(--radius-md)";
       li.style.border = "1px solid var(--border)";
-      li.innerHTML = `<span class="degree-badge" style="margin-bottom:.5rem;display:inline-block">${a.scope}</span><br>${a.text}`;
+      li.innerHTML = `<span class="degree-badge" style="margin-bottom:.5rem;display:inline-block">${UI.escapeHTML(a.scope)}</span><br>${UI.abbrify(a.text)}`;
       ul.appendChild(li);
     });
     actions.appendChild(ul);

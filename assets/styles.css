@@ -703,6 +703,53 @@ kbd {
   color: var(--muted);
 }
 
+/* ----- 10b. Glossaire dialog & abbr tooltips ----- */
+abbr[title] {
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: help;
+  border-bottom: 0;
+}
+.glossary-dialog { width: min(800px, 100%); max-width: 800px; }
+.glossary-toolbar {
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+#glossary-search {
+  width: 100%;
+  padding: .5rem .8rem;
+  font: inherit;
+  font-size: var(--fz-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+}
+.glossary-list {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr;
+  gap: .35rem var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  margin: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.glossary-list dt {
+  font-weight: 700;
+  color: var(--brand);
+  font-family: var(--ff-mono);
+  font-size: var(--fz-2);
+}
+.glossary-list dd {
+  margin: 0;
+  color: var(--text-2);
+  font-size: var(--fz-2);
+  line-height: var(--lh-body);
+  padding-bottom: .35rem;
+  border-bottom: 1px dashed var(--border);
+}
+
 /* ----- 11. Footer ----- */
 .app-footer {
   display: flex; flex-wrap: wrap; gap: var(--space-3);

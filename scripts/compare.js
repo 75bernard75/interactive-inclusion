@@ -76,7 +76,8 @@
         const td = document.createElement("td");
         let v = row[col.key];
         if (col.key === "degree") v = degreeList(v || []);
-        td.textContent = v ?? "—";
+        if (v == null) td.textContent = "—";
+        else td.innerHTML = UI.abbrify(v);
         tr.appendChild(td);
       });
 

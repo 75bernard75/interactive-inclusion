@@ -603,8 +603,99 @@ const DATA = {
     elementaire: "Élémentaire",
     college:     "Collège",
     lycee:       "Lycée"
+  },
+
+  /* ==================================================
+     GLOSSAIRE — tous les acronymes explicités
+     ================================================== */
+  glossarySupp: {
+    "TSA":      "Troubles du Spectre de l'Autisme",
+    "TDAH":     "Trouble Déficit de l'Attention avec ou sans Hyperactivité",
+    "TDA":      "Trouble Déficit de l'Attention (sans hyperactivité)",
+    "TND":      "Troubles du Neurodéveloppement",
+    "DI":       "Déficience Intellectuelle",
+    "Dys":      "Troubles spécifiques des apprentissages : dyslexie, dysorthographie, dyscalculie, dyspraxie, dysgraphie",
+    "dys-":     "Troubles spécifiques des apprentissages (dyslexie, dysorthographie, dyscalculie, dyspraxie, dysgraphie)",
+    "ESMS":     "Établissements et Services Médico-Sociaux (IME, ITEP, SESSAD…)",
+    "ARS":      "Agence Régionale de Santé",
+    "EN":       "Éducation Nationale",
+    "MEN":      "Ministère de l'Éducation Nationale",
+    "AESH-i":   "Accompagnant des Élèves en Situation de Handicap individuel (1 seul élève)",
+    "AESH-m":   "Accompagnant des Élèves en Situation de Handicap mutualisé (plusieurs élèves)",
+    "UEMA":     "Unité d'Enseignement Maternelle Autisme (3-6 ans)",
+    "EANA":     "Élève Allophone Nouvellement Arrivé en France (scolarisé antérieurement)",
+    "NSA":      "Non Scolarisé Antérieurement (élève allophone sans scolarité préalable)",
+    "FLS":      "Français Langue de Scolarisation",
+    "ESADP":    "Enseignant Spécialisé à Dominante Pédagogique (= Maître E)",
+    "ESADR":    "Enseignant Spécialisé à Dominante Relationnelle (= Maître G)",
+    "ASH":      "Adaptation Scolaire et Scolarisation des élèves Handicapés",
+    "CAPA-SH":  "Certificat d'Aptitude Professionnelle pour les Aides spécialisées, les enseignements adaptés et la Scolarisation des élèves en situation de Handicap (ancienne qualification, remplacée par le CAPPEI)",
+    "CAP":      "Certificat d'Aptitude Professionnelle (diplôme professionnel)",
+    "FCPE":     "Fédération des Conseils de Parents d'Élèves",
+    "UL12":     "Union Locale FCPE du 12ᵉ arrondissement de Paris",
+    "AG":       "Assemblée Générale",
+    "QI":       "Quotient Intellectuel",
+    "Psy-EN":   "Psychologue de l'Éducation Nationale",
+    "Psy-EN option B": "Psychologue de l'Éducation Nationale, option Éducation Développement Conseil en Orientation (collège / lycée)",
+    "RASED":    "Réseau d'Aides Spécialisées aux Élèves en Difficulté (1ᵉʳ degré)",
+    "12A-3":    "Circonscription scolaire 12A-3 (12ᵉ arrondissement de Paris, 1ᵉʳ degré)",
+    "ESS":      "Équipe de Suivi de Scolarisation (réunion annuelle obligatoire pour les élèves avec PPS)",
+    "CDAPH":    "Commission des Droits et de l'Autonomie des Personnes Handicapées",
+    "MDPH":     "Maison Départementale des Personnes Handicapées",
+    "CPE":      "Conseiller Principal d'Éducation (collège / lycée)",
+    "CP":       "Cours Préparatoire (1ʳᵉ année de l'élémentaire, 6 ans)",
+    "CE1":      "Cours Élémentaire 1ʳᵉ année (7 ans)",
+    "CE2":      "Cours Élémentaire 2ᵉ année (8 ans)",
+    "CM1":      "Cours Moyen 1ʳᵉ année (9 ans)",
+    "CM2":      "Cours Moyen 2ᵉ année (10 ans)",
+    "TPS":      "Toute Petite Section de maternelle (2 ans)",
+    "PS":       "Petite Section de maternelle (3 ans)",
+    "MS":       "Moyenne Section de maternelle (4 ans)",
+    "GS":       "Grande Section de maternelle (5 ans)",
+    "6ᵉ":       "Sixième (1ʳᵉ année du collège, 11 ans)",
+    "5ᵉ":       "Cinquième (2ᵉ année du collège, 12 ans)",
+    "4ᵉ":       "Quatrième (3ᵉ année du collège, 13 ans)",
+    "3ᵉ":       "Troisième (dernière année du collège, 14 ans)",
+    "DASEN":    "Directeur Académique des Services de l'Éducation Nationale",
+    "SEI":      "Service de l'Éducation Inclusive (Académie de Paris)",
+    "IEN":      "Inspecteur de l'Éducation Nationale (1ᵉʳ degré)",
+    "IME":      "Institut Médico-Éducatif",
+    "ITEP":     "Institut Thérapeutique, Éducatif et Pédagogique",
+    "SESSAD":   "Service d'Éducation Spéciale et de Soins À Domicile",
+    "EMAS":     "Équipe Mobile d'Appui médico-social à la Scolarisation",
+    "ULIS":     "Unité Localisée pour l'Inclusion Scolaire",
+    "UPE2A":    "Unité Pédagogique pour Élèves Allophones Arrivants",
+    "SEGPA":    "Section d'Enseignement Général et Professionnel Adapté",
+    "AESH":     "Accompagnant des Élèves en Situation de Handicap",
+    "PIAL":     "Pôle Inclusif d'Accompagnement Localisé",
+    "PAS":      "Pôle d'Appui à la Scolarité",
+    "LPI":      "Livret de Parcours Inclusif",
+    "PPRE":     "Programme Personnalisé de Réussite Éducative",
+    "PAP":      "Plan d'Accompagnement Personnalisé",
+    "PAI":      "Projet d'Accueil Individualisé",
+    "PPS":      "Projet Personnalisé de Scolarisation",
+    "pHARe":    "Programme de lutte contre le HARcèlement à l'École",
+    "ERSEH":    "Enseignant Référent pour la Scolarisation des Élèves en Situation de Handicap",
+    "CMP":      "Centre Médico-Psychologique (soin psychiatrique secteur public)",
+    "CMPP":     "Centre Médico-Psycho-Pédagogique (bilan + rééducation secteur public)",
+    "CAPP":     "Centre d'Adaptation Psycho-Pédagogique (Ville de Paris)",
+    "CAPPEI":   "Certificat d'Aptitude Professionnelle aux Pratiques de l'Éducation Inclusive",
+    "Maître E": "Enseignant Spécialisé à Dominante Pédagogique (RASED)",
+    "Maître G": "Enseignant Spécialisé à Dominante Relationnelle (RASED)"
   }
 };
 
 /* Index pratique pour l'app */
 DATA.nodesById = Object.fromEntries(DATA.nodes.map(n => [n.id, n]));
+
+/* Glossaire complet : fiches + supplément */
+DATA.glossary = Object.assign(
+  {},
+  Object.fromEntries(DATA.nodes.map(n => [n.id, n.fullName])),
+  DATA.glossarySupp
+);
+
+/* Liste triée pour la vue "Glossaire" */
+DATA.glossaryList = Object.entries(DATA.glossary)
+  .map(([k, v]) => ({ acronym: k, full: v }))
+  .sort((a, b) => a.acronym.localeCompare(b.acronym, "fr", { sensitivity: "base" }));

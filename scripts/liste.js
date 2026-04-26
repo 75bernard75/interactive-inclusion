@@ -78,9 +78,9 @@
       summary.className = "liste-head";
       summary.innerHTML = `
         <div>
-          <span class="degree-badge" style="color:var(--c-${n.category});border-color:currentColor;margin-bottom:.25rem">${n.label}</span>
-          <h2>${n.fullName}</h2>
-          <p style="color:var(--text-2);font-size:var(--fz-2);margin-top:.25rem">${n.tagline || ""}</p>
+          <span class="degree-badge" style="color:var(--c-${n.category});border-color:currentColor;margin-bottom:.25rem">${UI.escapeHTML(n.label)}</span>
+          <h2>${UI.escapeHTML(n.fullName)}</h2>
+          <p style="color:var(--text-2);font-size:var(--fz-2);margin-top:.25rem">${UI.abbrify(n.tagline || "")}</p>
         </div>
         <span class="chevron" aria-hidden="true">▾</span>`;
       d.appendChild(summary);
@@ -136,17 +136,17 @@
           value.forEach(ex => {
             const card = document.createElement("div");
             card.className = "example-card";
-            card.innerHTML = `<strong>${ex.name}</strong> — ${ex.detail}`;
+            card.innerHTML = `<strong>${UI.escapeHTML(ex.name)}</strong> — ${UI.abbrify(ex.detail)}`;
             row.appendChild(card);
           });
         } else if (Array.isArray(value)) {
           const ul = document.createElement("ul");
-          value.forEach(v => { const li = document.createElement("li"); li.textContent = v; ul.appendChild(li); });
+          value.forEach(v => { const li = document.createElement("li"); li.innerHTML = UI.abbrify(v); ul.appendChild(li); });
           row.appendChild(ul);
         } else {
           const p = document.createElement("p");
           if (kind === "alert") p.className = "paris-alert";
-          p.textContent = value;
+          p.innerHTML = UI.abbrify(value);
           row.appendChild(p);
         }
         body.appendChild(row);

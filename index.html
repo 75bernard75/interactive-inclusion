@@ -44,6 +44,9 @@
       <button id="print-btn" class="icon-btn" aria-label="Imprimer">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/></svg>
       </button>
+      <button id="glossary-btn" class="icon-btn" aria-label="Glossaire des acronymes" title="Glossaire">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3V4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M5 17a3 3 0 003 3h11" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8h7M9 12h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
       <button id="help-btn" class="icon-btn" aria-label="Aide">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9a2.5 2.5 0 015 0c0 2-2.5 2.5-2.5 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>
       </button>
@@ -114,6 +117,19 @@
     <p class="search-hint">↑ ↓ pour naviguer · Entrée pour ouvrir · Esc pour fermer</p>
   </dialog>
 
+  <dialog id="glossary-dialog" class="help-dialog glossary-dialog" aria-labelledby="glossary-title">
+    <form method="dialog">
+      <header>
+        <h2 id="glossary-title">Glossaire des acronymes</h2>
+        <button class="icon-btn" aria-label="Fermer">✕</button>
+      </header>
+      <div class="glossary-toolbar">
+        <input type="search" id="glossary-search" placeholder="Filtrer (TSA, MDPH, dys…)" autocomplete="off">
+      </div>
+      <dl class="glossary-list"></dl>
+    </form>
+  </dialog>
+
   <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title">
     <form method="dialog">
       <header><h2 id="help-title">Aide & raccourcis</h2><button class="icon-btn" aria-label="Fermer">✕</button></header>
@@ -140,12 +156,14 @@
   </footer>
 
   <script src="data/referential.js"></script>
+  <script src="scripts/abbr.js"></script>
   <script src="scripts/mindmap.js"></script>
   <script src="scripts/details.js"></script>
   <script src="scripts/parcours.js"></script>
   <script src="scripts/compare.js"></script>
   <script src="scripts/liste.js"></script>
   <script src="scripts/search.js"></script>
+  <script src="scripts/glossary.js"></script>
   <script src="scripts/app.js"></script>
 </body>
 </html>

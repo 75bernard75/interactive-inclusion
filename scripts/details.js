@@ -62,7 +62,7 @@
     catBadge.textContent = catLabel;
     title.textContent = n.label;
     fullname.textContent = n.fullName;
-    tagline.textContent = n.tagline || "";
+    tagline.innerHTML = UI.abbrify(n.tagline || "");
     tagline.style.display = n.tagline ? "" : "none";
 
     sections.innerHTML = "";
@@ -81,21 +81,21 @@
         val.forEach(ex => {
           const card = document.createElement("div");
           card.className = "example-card";
-          card.innerHTML = `<strong>${ex.name}</strong> — ${ex.detail}`;
+          card.innerHTML = `<strong>${UI.escapeHTML(ex.name)}</strong> — ${UI.abbrify(ex.detail)}`;
           s.appendChild(card);
         });
       } else if (f.type === "list") {
         const ul = document.createElement("ul");
-        val.forEach(v => { const li = document.createElement("li"); li.textContent = v; ul.appendChild(li); });
+        val.forEach(v => { const li = document.createElement("li"); li.innerHTML = UI.abbrify(v); ul.appendChild(li); });
         s.appendChild(ul);
       } else if (f.type === "alert") {
         const p = document.createElement("p");
         p.className = "paris-alert";
-        p.textContent = val;
+        p.innerHTML = UI.abbrify(val);
         s.appendChild(p);
       } else {
         const p = document.createElement("p");
-        p.textContent = val;
+        p.innerHTML = UI.abbrify(val);
         s.appendChild(p);
       }
       sections.appendChild(s);
