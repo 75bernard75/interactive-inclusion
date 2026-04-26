@@ -12,14 +12,14 @@
 <body>
   <a class="skip-link" href="#main">Aller au contenu principal</a>
 
-  <header class="app-header" role="banner">
-    <div class="brand">
+  <header class="app-header" role="banner" data-mode="home">
+    <a class="brand" href="#home" id="brand-link">
       <span class="brand-badge" aria-hidden="true">UL<br>12</span>
       <div class="brand-text">
         <h1>École Inclusive <span class="brand-sub">Paris 12ᵉ</span></h1>
         <p class="brand-tagline">Référentiel interactif · FCPE UL12 · Avril 2026</p>
       </div>
-    </div>
+    </a>
 
     <nav class="view-switch" role="tablist" aria-label="Changer de vue">
       <button role="tab" data-view="mindmap" aria-selected="true" aria-controls="view-mindmap">
@@ -35,6 +35,15 @@
         <span class="view-ico" aria-hidden="true">☰</span><span>Liste</span>
       </button>
     </nav>
+
+    <div class="mode-toggle" role="group" aria-label="Mode d'affichage">
+      <button id="mode-simple-btn" class="mode-btn" data-mode="simple" title="Mode simple : parcours guidé">
+        <span aria-hidden="true">✨</span><span>Simple</span>
+      </button>
+      <button id="mode-advanced-btn" class="mode-btn" data-mode="advanced" title="Mode avancé : référentiel complet">
+        <span aria-hidden="true">📚</span><span>Avancé</span>
+      </button>
+    </div>
 
     <div class="header-actions">
       <button id="search-open" class="icon-btn" aria-label="Rechercher (Ctrl+K)">
@@ -54,6 +63,9 @@
   </header>
 
   <main id="main" class="app-main">
+    <section id="view-home" class="view view-home" role="tabpanel" hidden></section>
+    <section id="view-simple" class="view view-simple" role="tabpanel" hidden></section>
+
     <section id="view-mindmap" class="view view-mindmap" role="tabpanel" aria-labelledby="tab-mindmap">
       <div class="mindmap-toolbar">
         <div class="filter-group" role="group" aria-label="Filtrer par degré">
@@ -135,13 +147,19 @@
     <form method="dialog">
       <header><h2 id="help-title">Aide & raccourcis</h2><button class="icon-btn" aria-label="Fermer">✕</button></header>
       <dl>
+        <dt><kbd>H</kbd></dt><dd>Retour à l'accueil</dd>
         <dt><kbd>Ctrl</kbd>+<kbd>K</kbd></dt><dd>Ouvrir la recherche</dd>
-        <dt><kbd>1</kbd> – <kbd>4</kbd></dt><dd>Basculer entre Mindmap / Parcours / Comparatif / Liste</dd>
+        <dt><kbd>1</kbd> – <kbd>4</kbd></dt><dd>Mode avancé : Mindmap / Parcours / Comparatif / Liste</dd>
         <dt><kbd>Esc</kbd></dt><dd>Fermer la fiche ou un dialogue</dd>
         <dt><kbd>Tab</kbd></dt><dd>Naviguer au clavier</dd>
         <dt><kbd>Entrée</kbd></dt><dd>Ouvrir la fiche du nœud sélectionné</dd>
-        <dt><kbd>Espace</kbd></dt><dd>Déplier / replier un nœud</dd>
+        <dt><kbd>Espace</kbd></dt><dd>Déplier / replier un nœud (mindmap)</dd>
+        <dt><kbd>?</kbd></dt><dd>Afficher cette aide</dd>
       </dl>
+      <p class="help-modes">
+        <strong>Mode simple</strong> — parcours guidés à partir de questions concrètes.
+        <strong>Mode avancé</strong> — référentiel complet : mindmap, parcours, comparatif, liste.
+      </p>
       <p class="help-sources">
         Sources : référentiel FCPE UL12 (avril 2026) · AG FCPE Paris 17/01/2026 · flyer RASED 12A-3 ·
         circulaires MEN sept. 2025 · données SEI MDPH Paris nov. 2025.
@@ -165,6 +183,8 @@
   <script src="scripts/liste.js"></script>
   <script src="scripts/search.js"></script>
   <script src="scripts/glossary.js"></script>
+  <script src="scripts/home.js"></script>
+  <script src="scripts/simple.js"></script>
   <script src="scripts/app.js"></script>
 </body>
 </html>

@@ -825,6 +825,299 @@ DATA.classes = {
   CAPP: "TPS — CM2 (1ᵉʳ degré uniquement, Paris uniquement)"
 };
 
+/* ==================================================
+   SCÉNARIOS — mode simple (langage non-technique,
+   parcours guidé pour les familles)
+   ================================================== */
+DATA.scenarios = [
+  {
+    id: "difficultes-classe",
+    icon: "📚",
+    color: "escalade",
+    title: "Mon enfant a des difficultés en classe",
+    summary: "Il a du mal à lire, écrire ou compter au même rythme que les autres. Avant tout diagnostic médical, plusieurs aides existent dans l'école.",
+    forClasses: "Du CP au CM2 (à l'élémentaire). En maternelle ou au collège, voir le scénario « Diagnostic médical » ou « Handicap reconnu ».",
+    steps: [
+      {
+        title: "Étape 1 — Parlez-en à l'enseignant",
+        body: "Demandez un rendez-vous. Décrivez ce que vous voyez à la maison (lecture qui bloque, fatigue, refus d'aller à l'école…). L'enseignant peut déjà mettre en place de petites adaptations.",
+        who: "L'enseignant ou le directeur de l'école",
+        ico: "💬"
+      },
+      {
+        title: "Étape 2 — Demander un PPRE (Programme Personnalisé de Réussite Éducative)",
+        body: "Le PPRE est un plan d'aide écrit, sans diagnostic médical. Il dure 6 à 12 semaines, peut être renouvelé. C'est l'enseignant qui le rédige, avec votre accord.",
+        who: "L'enseignant + le directeur",
+        ico: "📝",
+        relatedNode: "PPRE"
+      },
+      {
+        title: "Étape 3 — Mobiliser le RASED (Réseau d'Aides Spécialisées aux Élèves en Difficulté)",
+        body: "Le RASED, ce sont des enseignants spécialisés qui interviennent dans l'école : le Maître E aide pour les apprentissages, le Maître G aide quand l'enfant souffre à l'école (anxiété, refus), le Psy-EN peut faire un bilan psychologique.",
+        who: "À demander via le directeur ; ils dépendent de l'IEN (Inspecteur de l'Éducation Nationale)",
+        ico: "🤝",
+        relatedNode: "MaitreE"
+      },
+      {
+        title: "Étape 4 — Si rien ne s'améliore après quelques semaines",
+        body: "Plusieurs options : faire un bilan extérieur (CMPP, orthophoniste de ville), demander un PAP (Plan d'Accompagnement Personnalisé) si un médecin pose un diagnostic dys-, ou saisir la MDPH si on soupçonne un handicap.",
+        who: "Médecin scolaire, médecin traitant, CMPP, orthophoniste",
+        ico: "🩺",
+        relatedNode: "PAP"
+      }
+    ],
+    tips: [
+      "Vous n'avez PAS besoin d'un diagnostic médical pour demander un PPRE.",
+      "Demandez toujours par écrit (un mail au directeur ou au professeur principal) pour garder une trace.",
+      "Plus on s'y prend tôt, plus c'est efficace : n'attendez pas la fin de l'année."
+    ]
+  },
+
+  {
+    id: "diagnostic-medical",
+    icon: "🩺",
+    color: "instance",
+    title: "Mon enfant a un diagnostic (dyslexie, TDAH, dyspraxie…)",
+    summary: "Un médecin (généraliste, pédiatre, neurologue, orthophoniste, psychologue) a posé un diagnostic. Il existe des aménagements officiels à l'école, sans passer par la MDPH.",
+    forClasses: "À partir du CE1 et jusqu'à la Terminale (en lycée et au brevet / bac). Pas en maternelle.",
+    steps: [
+      {
+        title: "Étape 1 — Récupérer le compte-rendu médical",
+        body: "Demandez au médecin (ou à l'orthophoniste, au neuropédiatre…) un compte-rendu écrit qui précise le diagnostic et les aménagements recommandés (tiers-temps, support numérique, police adaptée…).",
+        who: "Le médecin qui a posé le diagnostic",
+        ico: "📄"
+      },
+      {
+        title: "Étape 2 — Demander un PAP (Plan d'Accompagnement Personnalisé)",
+        body: "Le PAP est un document officiel qui formalise les aménagements pour l'enfant. Il est valable AUX EXAMENS NATIONAUX (brevet, bac). Il est rédigé par le médecin scolaire et l'établissement, avec votre accord.",
+        who: "Le médecin scolaire + le chef d'établissement (ou directeur d'école)",
+        ico: "📝",
+        relatedNode: "PAP"
+      },
+      {
+        title: "Étape 3 — Veiller à l'application du PAP",
+        body: "Tous les enseignants doivent appliquer le PAP. C'est souvent là que ça coince. N'hésitez pas à demander une réunion en début d'année avec le professeur principal pour vérifier que chaque enseignant est au courant.",
+        who: "Le professeur principal · La CPE (au collège / lycée)",
+        ico: "👁️",
+        relatedNode: "CPE"
+      },
+      {
+        title: "Étape 4 — Si les aménagements ne suffisent pas",
+        body: "Si l'enfant a aussi besoin d'un accompagnant (AESH), de matériel adapté ou d'une classe spécialisée (ULIS), il faut alors saisir la MDPH pour obtenir un PPS (Projet Personnalisé de Scolarisation). Le PAP ne suffit plus.",
+        who: "La famille saisit directement la MDPH (en ligne ou via le médecin scolaire)",
+        ico: "🏛️",
+        relatedNode: "PPS"
+      }
+    ],
+    tips: [
+      "Le PAP est valable aux examens nationaux : brevet, bac, BTS — c'est très important de le faire signer.",
+      "Un PAP peut suivre l'enfant d'année en année — il n'est pas à recommencer à zéro à chaque rentrée.",
+      "Si un enseignant refuse d'appliquer les aménagements, demandez une médiation avec le chef d'établissement."
+    ]
+  },
+
+  {
+    id: "handicap-reconnu",
+    icon: "♿",
+    color: "structure",
+    title: "Mon enfant a un handicap reconnu (TSA, DI, paralysie cérébrale…)",
+    summary: "Le handicap est reconnu (ou en cours de reconnaissance) par la MDPH. Cela ouvre des droits importants : AESH, classe ULIS, matériel adapté, orientation en IME ou ITEP.",
+    forClasses: "De la maternelle (TPS) au lycée (Terminale) — toute la scolarité.",
+    steps: [
+      {
+        title: "Étape 1 — Constituer le dossier MDPH",
+        body: "La MDPH (Maison Départementale des Personnes Handicapées) instruit le dossier. Il faut un certificat médical, un dossier scolaire et une description des besoins. À Paris, le délai de traitement est de PLUSIEURS MOIS — commencez tôt.",
+        who: "La famille saisit directement la MDPH (formulaire en ligne ou papier)",
+        ico: "🏛️",
+        relatedNode: "MDPH"
+      },
+      {
+        title: "Étape 2 — La CDAPH notifie les droits",
+        body: "La CDAPH (Commission des Droits et de l'Autonomie des Personnes Handicapées) examine le dossier et notifie : un PPS (Projet Personnalisé de Scolarisation), un AESH (accompagnant), du matériel adapté, une orientation ULIS / IME / ITEP / SESSAD…",
+        who: "La CDAPH (interne à la MDPH)",
+        ico: "📜",
+        relatedNode: "CDAPH"
+      },
+      {
+        title: "Étape 3 — Mettre en œuvre le PPS",
+        body: "L'ERSEH (Enseignant Référent pour la Scolarisation des Élèves en Situation de Handicap) coordonne le PPS entre la famille, l'école, la MDPH. Une réunion annuelle obligatoire (l'ESS — Équipe de Suivi de Scolarisation) fait le point.",
+        who: "L'ERSEH (à demander via le directeur ou le chef d'établissement)",
+        ico: "🗂️",
+        relatedNode: "ERSEH"
+      },
+      {
+        title: "Étape 4 — Si les droits notifiés ne sont pas appliqués",
+        body: "Cas fréquent à Paris : 16 % des élèves notifiés n'ont pas leur AESH. Recours possibles : ERSEH, DASEN (Directeur Académique), médiation, et en dernier ressort le tribunal administratif.",
+        who: "ERSEH · DASEN · FCPE pour le soutien",
+        ico: "⚖️",
+        relatedNode: "AESH"
+      }
+    ],
+    tips: [
+      "Saisissez la MDPH AU PLUS TÔT — n'attendez pas que la situation s'aggrave, le délai parisien est de plusieurs mois.",
+      "Le PAS (Pôle d'Appui à la Scolarité, rentrée 2026) ne doit PAS retarder une saisine MDPH légitime.",
+      "Le PPS suit l'enfant toute la scolarité ; il est révisé chaque année en ESS."
+    ]
+  },
+
+  {
+    id: "maladie-allergie",
+    icon: "💊",
+    color: "soin",
+    title: "Mon enfant a une maladie chronique ou une allergie",
+    summary: "Diabète, asthme grave, allergie alimentaire, épilepsie… Un protocole d'urgence et des aménagements (médicaments, repas, sport) doivent être organisés à l'école.",
+    forClasses: "De la maternelle (TPS) au lycée (Terminale) — toute la scolarité.",
+    steps: [
+      {
+        title: "Étape 1 — Demander un PAI (Projet d'Accueil Individualisé)",
+        body: "Le PAI organise tout : le protocole d'urgence, les médicaments à l'école, les aménagements de la cantine, du sport, des sorties scolaires. C'est le médecin scolaire qui le rédige avec le médecin traitant et la famille.",
+        who: "Le médecin scolaire + le directeur / chef d'établissement + la famille",
+        ico: "📋",
+        relatedNode: "PAI"
+      },
+      {
+        title: "Étape 2 — Vérifier l'application au quotidien",
+        body: "L'infirmier scolaire (s'il y en a un) ou le directeur tient le PAI à jour. Vérifiez que tous les adultes au contact de l'enfant (cantine, périscolaire, sorties) sont au courant.",
+        who: "L'infirmier scolaire · Le directeur · La CPE (au collège)",
+        ico: "👁️",
+        relatedNode: "InfirmierScolaire"
+      },
+      {
+        title: "Étape 3 — Renouveler chaque année",
+        body: "Le PAI est annuel : il doit être actualisé à chaque rentrée. Pensez à anticiper en juin pour la rentrée de septembre.",
+        who: "Le médecin scolaire + la famille",
+        ico: "🔄"
+      }
+    ],
+    tips: [
+      "Le PAI s'applique aussi à la cantine et au périscolaire (mairie de Paris).",
+      "Si la maladie chronique a un impact lourd sur la scolarité, un PPS peut aussi être demandé en complément du PAI.",
+      "Le PAI est en cours d'intégration dans le LPI (Livret de Parcours Inclusif)."
+    ]
+  },
+
+  {
+    id: "harcelement",
+    icon: "🛡️",
+    color: "prevention",
+    title: "Mon enfant subit du harcèlement (à l'école ou en ligne)",
+    summary: "Moqueries répétées, exclusion, violences, cyberharcèlement (WhatsApp, réseaux sociaux). Un protocole national existe : le programme pHARe.",
+    forClasses: "Du CM1 à la Terminale (programme pHARe étendu à tout le primaire depuis 2023, en pratique CP — Terminale).",
+    steps: [
+      {
+        title: "Étape 1 — Signaler immédiatement",
+        body: "Contactez le référent pHARe de l'école ou de l'établissement (un enseignant désigné). Vous pouvez aussi appeler le 3018 (numéro national gratuit, anonyme).",
+        who: "Le référent pHARe (à demander au directeur / chef d'établissement) · Le 3018",
+        ico: "📞",
+        relatedNode: "pHARe"
+      },
+      {
+        title: "Étape 2 — Le protocole pHARe se déclenche",
+        body: "Le référent pHARe enquête, organise une médiation, met en place des élèves ambassadeurs, contacte les familles concernées. Si le harcèlement est grave, un signalement est fait.",
+        who: "Le référent pHARe · La CPE · Le chef d'établissement",
+        ico: "⚙️"
+      },
+      {
+        title: "Étape 3 — Soutien à l'enfant",
+        body: "Le harcèlement crée une anxiété scolaire forte. Le Maître G (en école) ou le Psy-EN peut accompagner l'enfant. Au collège / lycée, l'infirmier scolaire et le CMP (Centre Médico-Psychologique) sont des relais.",
+        who: "Maître G · Psy-EN · Infirmier scolaire · CMP",
+        ico: "❤️",
+        relatedNode: "MaitreG"
+      },
+      {
+        title: "Étape 4 — Si rien ne change",
+        body: "Demandez une rencontre avec le chef d'établissement et écrivez à la DASEN. La FCPE peut vous accompagner. En cas de gravité, dépôt de plainte possible.",
+        who: "DASEN · FCPE · Police / Gendarmerie en cas de violence",
+        ico: "⚖️"
+      }
+    ],
+    tips: [
+      "Le 3018 est gratuit, confidentiel, et peut faire retirer des contenus en ligne.",
+      "46 % des parents ne connaissent pas le programme pHARe (Grande Enquête FCPE 2025) — vous avez le droit de le réclamer.",
+      "Conservez toutes les preuves (captures d'écran, mails, SMS)."
+    ]
+  },
+
+  {
+    id: "allophone",
+    icon: "🌍",
+    color: "structure",
+    title: "Mon enfant arrive en France et ne parle pas (encore) français",
+    summary: "Un dispositif spécifique existe : l'UPE2A (Unité Pédagogique pour Élèves Allophones Arrivants). Il propose des cours de français intensifs avec une inclusion progressive en classe ordinaire.",
+    forClasses: "De l'élémentaire au lycée. En maternelle : accueil direct en classe ordinaire avec accompagnement.",
+    steps: [
+      {
+        title: "Étape 1 — Inscrire l'enfant à l'école / au collège",
+        body: "L'inscription se fait à la mairie (1ᵉʳ degré) ou directement à l'établissement (2ⁿᵈ degré). Tout enfant a le droit à l'école, quelle que soit la situation administrative de la famille.",
+        who: "Mairie du 12ᵉ ou établissement du secteur",
+        ico: "🏫"
+      },
+      {
+        title: "Étape 2 — Demander une orientation UPE2A",
+        body: "L'UPE2A propose des cours de français langue de scolarisation (FLS) en groupes restreints, avec une inclusion progressive en classe ordinaire selon les progrès. Durée : 1 à 2 ans en général.",
+        who: "Le directeur d'école · Le CASNAV (Centre Académique pour la Scolarisation des Allophones) · La DASEN",
+        ico: "🗣️",
+        relatedNode: "UPE2A"
+      },
+      {
+        title: "Étape 3 — Suivre les progrès",
+        body: "L'enseignant UPE2A coordonne les progrès. Si des difficultés persistent au-delà de la langue (dyslexie, TDAH, traumatisme…), un PPRE, PAP ou saisine MDPH peut être déclenché en parallèle.",
+        who: "L'enseignant UPE2A · Le médecin scolaire si besoin",
+        ico: "📈"
+      }
+    ],
+    tips: [
+      "Présent dans de nombreux établissements parisiens. Le lycée professionnel Chennevière-Malézieux (12ᵉ) en dispose.",
+      "Vous avez le droit à un interprète pour les rendez-vous officiels (école, MDPH).",
+      "L'enfant ne perd pas sa langue maternelle — au contraire, le bilinguisme est un atout."
+    ]
+  },
+
+  {
+    id: "refus-ecole",
+    icon: "😟",
+    color: "soin",
+    title: "Mon enfant refuse d'aller à l'école / a très peur",
+    summary: "Phobie scolaire, anxiété, mal-être. C'est un signal qu'il ne faut pas négliger : plus on agit tôt, mieux c'est.",
+    forClasses: "De la maternelle (TPS) au lycée (Terminale) — toute la scolarité.",
+    steps: [
+      {
+        title: "Étape 1 — En parler avec l'enfant et l'enseignant",
+        body: "Demandez ce qu'il vit (peur d'un adulte, d'autres élèves, d'une matière, ambiance de classe ?). Parlez-en à l'enseignant et au directeur / CPE pour comprendre la situation côté école.",
+        who: "L'enseignant · Le directeur · La CPE",
+        ico: "💬",
+        relatedNode: "CPE"
+      },
+      {
+        title: "Étape 2 — Vérifier qu'il n'y a pas de harcèlement",
+        body: "L'anxiété scolaire est très souvent liée à du harcèlement (voir le scénario harcèlement). Ne négligez pas cette piste.",
+        who: "Référent pHARe · CPE · Infirmier scolaire",
+        ico: "🛡️",
+        relatedNode: "pHARe"
+      },
+      {
+        title: "Étape 3 — Mobiliser les acteurs internes",
+        body: "En école : le Maître G (RASED) intervient justement sur le mal-être scolaire. Le Psy-EN peut faire un bilan. Au collège / lycée : l'infirmier scolaire et le Psy-EN B sont des relais.",
+        who: "Maître G · Psy-EN · Infirmier scolaire · Psy-EN B",
+        ico: "❤️",
+        relatedNode: "MaitreG"
+      },
+      {
+        title: "Étape 4 — Soin externe",
+        body: "Le CMP (Centre Médico-Psychologique) propose un suivi psy / psychiatrique gratuit. ATTENTION : 6 à 18 mois de délai à Paris — orientez très tôt.",
+        who: "Le médecin traitant peut prescrire · La famille peut aussi appeler directement",
+        ico: "🩺",
+        relatedNode: "CMP"
+      }
+    ],
+    tips: [
+      "Le délai CMP / CMPP à Paris est de 6 à 18 mois. Prenez rendez-vous DÈS la suspicion, sans attendre que la situation se dégrade.",
+      "Si l'enfant ne peut plus aller à l'école, un dispositif d'enseignement à distance (CNED réglementé) existe sur certificat médical.",
+      "Vous n'êtes pas seuls : la FCPE et les associations parents peuvent vous accompagner."
+    ]
+  }
+];
+
 /* Ajout dans comparaison : classes explicites */
 if (DATA.comparison && DATA.comparison.rows) {
   DATA.comparison.columns = [
