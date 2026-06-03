@@ -14,7 +14,10 @@
             pour votre enfant à l'école. Tous les acronymes sont expliqués
             (passez la souris dessus, ou ouvrez le glossaire).
           </p>
-          <p class="home-author">FCPE UL12 · Référentiel d'avril 2026</p>
+          <p class="home-author">
+            FCPE UL12 · Source : référentiel d'avril 2026 ·
+            Dernière mise à jour de l'application le <time>${UI.escapeHTML(DATA.meta.lastUpdate || "—")}</time>
+          </p>
         </section>
 
         <section class="home-modes" aria-label="Choisir un mode">

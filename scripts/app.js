@@ -181,6 +181,12 @@
     state
   };
 
+  // Synchronise la date de dernière mise à jour avec DATA.meta.lastUpdate
+  const updateEl = document.getElementById("footer-last-update");
+  if (updateEl && DATA.meta && DATA.meta.lastUpdate) {
+    updateEl.textContent = DATA.meta.lastUpdate;
+  }
+
   // Boot
   routeFromHash();
 })();

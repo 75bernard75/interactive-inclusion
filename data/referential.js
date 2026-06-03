@@ -10,6 +10,7 @@ const DATA = {
   meta: {
     title: "École Inclusive · Paris 12ᵉ",
     date:  "Avril 2026",
+    lastUpdate: "3 juin 2026",
     author: "FCPE UL12",
     subtitle: "Dispositifs, acteurs, structures de l'école inclusive"
   },

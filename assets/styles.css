@@ -1131,6 +1131,11 @@ abbr[title] {
   color: var(--text-2);
 }
 .alert-inline { color: var(--danger); }
+.footer-update {
+  color: var(--muted);
+  white-space: nowrap;
+}
+.footer-update time { font-variant-numeric: tabular-nums; }
 
 /* ----- 12. Responsive ----- */
 @media (max-width: 900px) {
