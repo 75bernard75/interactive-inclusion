@@ -46,6 +46,7 @@
     { key: "parisNote",    label: "Note Paris" },
     { key: "parisAlert",   label: "⚠ Alerte Paris", type: "alert" },
     { key: "risk",         label: "⚠ Vigilance",    type: "alert" },
+    { key: "legislativeNote", label: "⚠ Législation — rentrée 2026", type: "alert" },
     { key: "fcpe",         label: "Lecture FCPE" },
     { key: "note",         label: "Note" }
   ];

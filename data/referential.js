@@ -61,6 +61,7 @@ const DATA = {
       profile: `Tout élève bénéficiant d'au moins une adaptation scolaire formalisée.`,
       trigger: `Accès famille + équipe enseignante + direction.`,
       note: `Le PAI y sera intégré — déploiement progressif en cours en 2025-2026.`,
+      legislativeNote: `✓ Généralisation confirmée — Rentrée 2026. La proposition de loi École inclusive adoptée en mai 2026 (108 voix sur 125) confirme la généralisation du LPI comme outil unique pour assurer le suivi sans rupture des élèves.`,
       degree: ["maternelle","elementaire","college","lycee"],
       links: ["PPRE","PAP","PAI","PPS"]
     },
@@ -79,6 +80,7 @@ const DATA = {
       replaces: `PIAL — Pôle Inclusif d'Accompagnement Localisé — pour la gestion des AESH.`,
       parisNote: `Déploiement prévu rentrée septembre 2026 dans le 12ᵉ (pilotes : 13ᵉ et 18ᵉ depuis sept. 2025).`,
       risk: `Peut retarder une saisine MDPH si sous-doté en moyens — point de vigilance FCPE. Le PAS ne doit pas bloquer l'accès à la MDPH.`,
+      legislativeNote: `⚠ INCERTITUDE LÉGISLATIVE — Rentrée 2026. Selon des sources de presse (Le Monde, mai 2026), un dispositif clé du PAS a été REJETÉ au Parlement avant l'adoption de la proposition de loi École inclusive (108 voix sur 125). Le déploiement du PAS dans sa forme initialement annoncée n'est donc plus garanti pour la rentrée 2026. À surveiller : annonces du MEN, calendrier de mise en œuvre, articulation avec la disparition annoncée des RASED.`,
       degree: ["maternelle","elementaire","college","lycee"],
       links: ["CoordPAS","EMAS","MDPH","AESH","PIAL","RASED"]
     },
@@ -181,6 +183,7 @@ const DATA = {
       format: `300 heures sur 2 ans, en alternance sur le poste — l'enseignant est en formation et en poste simultanément.`,
       risk: `Un poste RASED vacant peut signifier qu'aucun enseignant titulaire du CAPPEI n'est disponible ou candidat dans la circonscription — point à vérifier auprès de l'IEN.`,
       fcpe: `Tout poste RASED non pourvu faute de CAPPEI doit être signalé — indicateur de la dégradation structurelle du dispositif.`,
+      legislativeNote: `⚠ INCERTITUDE LÉGISLATIVE — Rentrée 2026. La disparition annoncée des RASED (réorganisation au sein du PAS, lui-même remis en cause par le vote de mai 2026 sur la proposition de loi École inclusive) crée une zone d'incertitude pour les postes Maître E, Maître G et Psy-EN A. Vigilance FCPE : vérifier au cas par cas auprès de l'IEN et du SEI Paris.`,
       degree: ["maternelle","elementaire"],
       links: ["MaitreE","MaitreG","PsyEN","ULIS","IEN","CoordPAS"]
     },
@@ -199,6 +202,7 @@ const DATA = {
         "Cohérence avec l'aide du maître de classe"
       ],
       consent: `Parents informés par l'enseignant de la classe.`,
+      legislativeNote: `⚠ Devenir incertain rentrée 2026 — voir la fiche CAPPEI : disparition annoncée des RASED dans le cadre de la réorganisation du PAS, lui-même partiellement rejeté par la loi École inclusive de mai 2026.`,
       degree: ["maternelle","elementaire"],
       links: ["PPRE","CAPPEI","PsyEN","IEN"]
     },
@@ -216,6 +220,7 @@ const DATA = {
         "Aider l'enfant à trouver ses repères parmi ses pairs"
       ],
       consent: `Accord écrit des parents ou responsable légal OBLIGATOIRE avant toute intervention.`,
+      legislativeNote: `⚠ Devenir incertain rentrée 2026 — voir la fiche CAPPEI : disparition annoncée des RASED dans le cadre de la réorganisation du PAS, lui-même partiellement rejeté par la loi École inclusive de mai 2026.`,
       degree: ["maternelle","elementaire"],
       links: ["PPRE","CAPPEI","PsyEN","pHARe","CMP"]
     },
@@ -231,6 +236,7 @@ const DATA = {
       orient: `Peut orienter vers CMP, CMPP, CAPP, orthophoniste — avec accord de la famille.`,
       consent: `Accord écrit des parents OBLIGATOIRE pour tout bilan psychométrique — sauf protection de l'enfance.`,
       note: `Des Psy-EN option B existent au collège/lycée pour l'orientation, hors RASED.`,
+      legislativeNote: `⚠ Devenir incertain rentrée 2026 — voir la fiche CAPPEI : la disparition annoncée des RASED concerne aussi les Psy-EN option A. À surveiller : éventuelle réaffectation au sein du PAS ou directement en circonscription.`,
       degree: ["maternelle","elementaire"],
       links: ["PPRE","PPS","MDPH","CMP","CMPP","CAPP","SEGPA","MaitreE","MaitreG"]
     },
@@ -337,8 +343,9 @@ const DATA = {
         "AESH-i — individuel (1 seul élève)",
         "AESH-m — mutualisé entre plusieurs élèves"
       ],
-      managedBy: `PIAL — Pôle Inclusif d'Accompagnement Localisé (actuellement) → remplacé par PAS rentrée 2026.`,
+      managedBy: `PIAL — Pôle Inclusif d'Accompagnement Localisé (actuellement) → remplacé par PAS rentrée 2026 (devenir à confirmer après les arbitrages législatifs de mai 2026).`,
       parisAlert: `84 % des élèves notifiés sont accompagnés — 16 % sans AESH malgré la notification CDAPH.`,
+      legislativeNote: `✓ Formation et intégration renforcées — Rentrée 2026. La proposition de loi École inclusive adoptée en mai 2026 prévoit une meilleure intégration et une formation renforcée des AESH (mesure confirmée par le vote final, 108 voix sur 125).`,
       degree: ["maternelle","elementaire","college","lycee"],
       links: ["PPS","CDAPH","MDPH","PIAL","PAS","ULIS","ERSEH","ESS"]
     },
@@ -570,10 +577,10 @@ const DATA = {
       category: "escalade",
       dispositifs: ["LPI"],
       description: "Adaptations légères en classe · Enseignant seul · Aucune démarche externe · Trace dans le LPI." },
-    { level: "1ᵉʳ niveau (rentrée 2026)",
+    { level: "1ᵉʳ niveau (rentrée 2026 — à confirmer)",
       category: "escalade",
       dispositifs: ["PAS"],
-      description: "Réponse rapide sans diagnostic · Famille, enseignant ou directeur · Coordinateur + éducateur médico-social." },
+      description: "Réponse rapide sans diagnostic · Famille, enseignant ou directeur · Coordinateur + éducateur médico-social. ⚠ Le déploiement effectif du PAS rentrée 2026 est INCERTAIN suite au vote de la proposition de loi École inclusive (mai 2026, 108 voix sur 125) qui a rejeté l'un de ses dispositifs clés." },
     { level: "Difficulté persistante",
       category: "rased",
       dispositifs: ["PPRE"],
@@ -588,7 +595,7 @@ const DATA = {
       description: "Droits notifiés par CDAPH via MDPH · AESH · ULIS · Matériel adapté · Orientation ESMS · Délai long à Paris." }
   ],
 
-  escalationRule: `Un PPRE sans résultat doit conduire à un PAP ou une saisine MDPH — pas rester bloqué faute de moyens. Le PAS n'est pas un plafond.`,
+  escalationRule: `Un PPRE sans résultat doit conduire à un PAP ou une saisine MDPH — pas rester bloqué faute de moyens. Le PAS n'est pas un plafond, et son existence sous sa forme initiale rentrée 2026 reste à confirmer après le vote de la proposition de loi École inclusive (mai 2026).`,
 
   comparison: {
     columns: [
@@ -651,18 +658,25 @@ const DATA = {
   },
 
   alerts: [
+    { label: "⚠ Loi École inclusive (mai 2026)",
+      value: "Proposition de loi adoptée (108 voix sur 125) APRÈS rejet d'un dispositif clé du PAS. Confirmé pour la rentrée 2026 : généralisation du LPI, formation et intégration renforcées des AESH. À surveiller : devenir du PAS et des RASED, calendrier de mise en œuvre. Source : presse nationale (Le Monde, mai 2026).",
+      kind: "alert" },
+    { label: "⚠ Rentrée 2026 — points flous",
+      value: "Le déploiement du PAS dans sa forme annoncée n'est plus garanti. Les RASED sont signalés en disparition selon des sources de presse. Vérifier auprès de l'IEN de circonscription et du SEI Paris avant toute démarche.",
+      kind: "alert" },
     { label: "CMP / CMPP",   value: "6 à 18 mois", kind: "wait" },
     { label: "MDPH",         value: "Plusieurs mois", kind: "wait" },
     { label: "Places IME / ITEP", value: "≈ 500 élèves en attente", kind: "wait" },
     { label: "AESH Paris",   value: "16 % des élèves notifiés sans accompagnant", kind: "alert" },
-    { label: "Vigilance PAS", value: "Ne crée pas de nouveaux postes — réorganise des ressources existantes dont le RASED. Signaler tout cas où le PAS retarde une saisine MDPH légitime.", kind: "alert" }
+    { label: "Vigilance PAS", value: "Le PAS ne crée pas de nouveaux postes — il réorganise des ressources existantes dont le RASED. INCERTITUDE LÉGISLATIVE 2026 : un dispositif clé du PAS a été rejeté avant le vote final de la proposition de loi École inclusive. Le déploiement effectif rentrée 2026 reste donc incertain. Vigilance FCPE : signaler tout cas où le PAS retarde une saisine MDPH légitime.", kind: "alert" }
   ],
 
   fcpeActions: [
     { scope: "École",       text: "Vérifier en conseil d'école si les 3 postes RASED (12A-3) sont pourvus et actifs. Si un poste est vacant, le signaler à l'UL12 et à la FCPE Paris." },
     { scope: "École",       text: "Demander combien d'élèves sont en PPRE, PAP ou PAI — et si le RASED est impliqué dans leur suivi." },
     { scope: "Collège",     text: "Demander combien d'élèves ont un PAP actif et si les aménagements sont bien appliqués par tous les enseignants (point de friction fréquent)." },
-    { scope: "Rentrée 2026", text: "Identifier l'établissement pivot du 12ᵉ, son coordinateur PAS, et les modalités de saisine par les familles." },
+    { scope: "Loi 2026",    text: "Suivre les annonces officielles du MEN sur le devenir du PAS après le vote de la proposition de loi École inclusive (mai 2026) et sur la disparition annoncée des RASED. Partager toute information utile via la commission École Inclusive FCPE Paris." },
+    { scope: "Rentrée 2026", text: "Identifier l'établissement pivot du 12ᵉ, son éventuel coordinateur PAS (à confirmer), et les modalités de saisine par les familles." },
     { scope: "Vigilance",   text: "Signaler tout cas où le PAS empêche ou retarde une saisine MDPH légitime à la commission École Inclusive FCPE Paris." }
   ],
 

@@ -121,6 +121,7 @@
         ["Note Paris",           n.parisNote],
         ["⚠ Alerte Paris",       n.parisAlert, "alert"],
         ["⚠ Vigilance",          n.risk, "alert"],
+        ["⚠ Législation — rentrée 2026", n.legislativeNote, "alert"],
         ["Lecture FCPE",         n.fcpe],
         ["Note",                 n.note]
       ];
